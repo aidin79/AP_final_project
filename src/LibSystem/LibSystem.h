@@ -20,6 +20,7 @@ private:
     void signup(vector<string> command);
     void search(vector<string> command);
     void borrow(vector<string> command);
+    void returnBook(vector<string> command);
     void listPrinter(vector<string> list);
     void logout();
 public:

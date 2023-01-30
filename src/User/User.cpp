@@ -49,9 +49,25 @@ bool User::canBorrow()
     return true;
 }
 
+bool User::hasBook(int _bookId)
+{
+    for (int bookId : borrowedBooksId)
+        if (bookId == _bookId)
+            return true;
+    return false;
+}
+
 void User::addBook(int bookId)
 {
     borrowedBooksId.push_back(bookId);
+}
+
+void User::returnBook(int bookId)
+{
+    int borrowedBooksNum = borrowedBooksId.size();
+    for (int i = 0; i < borrowedBooksNum; i++)
+        if (borrowedBooksId[i] == bookId)
+            borrowedBooksId.erase(borrowedBooksId.begin() + i);
 }
 
 User::~User()
