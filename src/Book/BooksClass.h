@@ -13,6 +13,9 @@ public:
     BooksClass();
     vector<string> searchByName(string name);
     vector<string> searchByAuther(string auther);
+    int findByISBN(string ISBN);
+    bool isFree(int bookId);
+    void addUserToBook(int userId, int bookId);
     ~BooksClass();
 };
 

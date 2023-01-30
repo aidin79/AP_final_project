@@ -4,3 +4,4 @@ logout
 exit
 search name <name>
 search auther <name>
+get ISBN

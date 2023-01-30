@@ -25,6 +25,28 @@ vector<string> BooksClass::searchByAuther(string auther)
     return res;
 }
 
+bool BooksClass::isFree(int bookId)
+{
+    if (books[bookId].isFree())
+        return true;
+    return false;
+}
+
+void BooksClass::addUserToBook(int userId, int bookId)
+{
+    books[bookId].setUserId(userId);
+}
+
+int BooksClass::findByISBN(string ISBN)
+{
+    int booksSize = books.size();
+    for (int i = 0; i < booksSize; i++) {
+        if(books[i].isYourISBN(ISBN))
+            return i;
+    }
+    return -1;
+}
+
 BooksClass::~BooksClass()
 {
 }

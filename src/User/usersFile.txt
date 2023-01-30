@@ -1,4 +1,4 @@
-admin admin admin admin 1379/11/22 1
-username1 pass1 fn1 ln2 1380/12/23 0
-username2 pass2 fn2 ln2 1381/10/20 0
-username3 pass3 fn3 ln3 1382/1/2 0
+admin admin admin admin 1379/11/22 1 0
+username1 pass1 fn1 ln2 1380/12/23 0 2 3 4
+username2 pass2 fn2 ln2 1381/10/20 0 0
+username3 pass3 fn3 ln3 1382/1/2 0 1 5

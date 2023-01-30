@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <vector>
-#include <cstring>
 using namespace std;
 
 class Book
@@ -25,6 +24,9 @@ public:
         int yearPublished, string ISBN, int length, string subjects, int userId);
     bool isYourName(string name);
     bool isYourAuther(string _auther);
+    bool isYourISBN(string _ISBN);
+    bool isFree();
+    void setUserId(int _userId);
     string toString();
     ~Book();
 };

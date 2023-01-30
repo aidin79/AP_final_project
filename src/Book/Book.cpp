@@ -33,6 +33,25 @@ bool Book::isYourAuther(string _auther)
     return false;
 }
 
+bool Book::isYourISBN(string _ISBN)
+{
+    if (ISBN == _ISBN) 
+        return true;
+    return false;
+}
+
+bool Book::isFree()
+{
+    if (userId == -1)
+        return true;
+    return false;
+}
+
+void Book::setUserId(int _userId)
+{
+    userId = _userId;
+}
+
 string Book::toString()
 {
     string freeState = userId == -1 ? "free" : "borrowed";

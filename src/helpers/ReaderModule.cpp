@@ -27,12 +27,19 @@ vector<User> ReaderModule::readUsersFile(string fileAdr)
     ifstream infile(fileAdr);
     vector<User> users;
     string userName, password, firstName, lastName, birthDate;
+    int numOfBooksBorrowed;
     bool isAdmin;
     cout << "readUsersFile" << endl;
-    while (infile >> userName >> password >> firstName >> lastName >> birthDate >> isAdmin)
+    while (infile >> userName >> password >> firstName >> lastName >> birthDate >> isAdmin >> numOfBooksBorrowed)
     {
-        cout << userName << ' ' << password << ' ' << firstName << ' ' << lastName << ' ' << birthDate << ' ' << isAdmin << ' ' << endl;
-        users.push_back(User(userName, password, firstName, lastName, birthDate, isAdmin));
+        vector<int> borrowedBooks;
+        for(int i = 0; i < numOfBooksBorrowed; i++) {
+            int bookId;
+            infile >> bookId;
+            borrowedBooks.push_back(bookId);
+        }
+        cout << userName << ' ' << password << ' ' << firstName << ' ' << lastName << ' ' << birthDate << ' ' << isAdmin << ' ' << borrowedBooks.size() << endl;
+        users.push_back(User(userName, password, firstName, lastName, birthDate, borrowedBooks, isAdmin));
     }
     return users;
 }

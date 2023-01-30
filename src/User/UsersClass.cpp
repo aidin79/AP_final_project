@@ -29,7 +29,7 @@ void UsersClass::add(string userName, string password, string firstName, string 
         throw invalid_argument("this username is duplicate. please choose another one.");
     User tmpUser(userName, password, firstName, lastName, birthDate);
     users.push_back(tmpUser);
-    ReaderModule::writeToFile(tmpUser.to_string(), "src/User/usersFile.txt");
+    ReaderModule::writeToFile(tmpUser.toString(), "src/User/usersFile.txt");
 }
 
 int UsersClass::validateUser(string userName, string password)
@@ -38,6 +38,18 @@ int UsersClass::validateUser(string userName, string password)
     if (userId > -1 && users[userId].isYou(userName, password))
         return userId;
     return -1;
+}
+
+bool UsersClass::canBorrow(int userId)
+{
+    if (users[userId].canBorrow())
+        return true;
+    return false;
+}
+
+void UsersClass::addBookToUser(int bookId, int userId)
+{
+    users[userId].addBook(bookId);
 }
 
 UsersClass::~UsersClass()

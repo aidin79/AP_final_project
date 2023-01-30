@@ -31,6 +31,8 @@
 *.out
 *.app
 
+*.zip
+
 CMakeFiles
 MakeFile
 CMakeCache.txt
