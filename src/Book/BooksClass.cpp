@@ -37,6 +37,11 @@ void BooksClass::addUserToBook(int userId, int bookId)
     books[bookId].setUserId(userId);
 }
 
+void BooksClass::freeBook(int bookId)
+{
+    books[bookId].setFree();
+}
+
 int BooksClass::findByISBN(string ISBN)
 {
     int booksSize = books.size();

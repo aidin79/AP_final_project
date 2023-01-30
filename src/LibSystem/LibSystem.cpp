@@ -17,6 +17,8 @@ bool LibSystem::chooseState()
             search(command);
         else if (operation == "borrow")
             borrow(command);
+        else if (operation == "return")
+            returnBook(command);
         else if(operation == "exit")
             return false;
         else
@@ -102,11 +104,31 @@ void LibSystem::borrow(vector<string> command)
     if (bookId == -1)
         throw invalid_argument("we dont have this book:(");
     if (!booksClass.isFree(bookId))
-        throw invalid_argument("this book has borrowed:(");
+        throw invalid_argument("this book has already borrowed:(");
     if (!usersClass.canBorrow(loggedInUserId))
         throw invalid_argument("you cant borrow more books:(");
     booksClass.addUserToBook(loggedInUserId, bookId);
     usersClass.addBookToUser(bookId, loggedInUserId);
+    cout << "your book returned successfully" << endl;
+}
+
+void LibSystem::returnBook(vector<string> command)
+{
+    const int RETURN_COMMAND_SIZE = 2;
+    if (command.size() != RETURN_COMMAND_SIZE)
+        throw invalid_argument("borrow commands format must be: search <ISBN>.");
+    if (loggedInUserId == -1)
+        throw invalid_argument("please login first.");
+
+    string ISBN = command[1];
+    int bookId = booksClass.findByISBN(ISBN);
+
+    if (bookId == -1)
+        throw invalid_argument("we dont have this book:(");
+    if (!usersClass.hasBook(bookId, loggedInUserId))
+        throw invalid_argument("you dont have this book");
+    booksClass.freeBook(bookId);
+    usersClass.returnBook(bookId, loggedInUserId);
     cout << "you have borrowed successfully" << endl;
 }
 

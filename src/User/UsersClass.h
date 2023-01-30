@@ -19,6 +19,8 @@ public:
     int validateUser(string userName, string password);
     bool canBorrow(int userId);
     void addBookToUser(int bookId, int userId);
+    bool hasBook(int bookId, int userId);
+    void returnBook(int bookId, int userId);
     ~UsersClass();
 };
 

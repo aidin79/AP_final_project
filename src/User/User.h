@@ -23,7 +23,9 @@ public:
     bool isYou(string _userName, string _password);
     bool isYourUser(string _userName);
     bool canBorrow();
+    bool hasBook(int bookId);
     void addBook(int bookId);
+    void returnBook(int bookId);
     ~User();
 };
 

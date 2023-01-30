@@ -52,6 +52,11 @@ void Book::setUserId(int _userId)
     userId = _userId;
 }
 
+void Book::setFree()
+{
+    userId = -1;
+}
+
 string Book::toString()
 {
     string freeState = userId == -1 ? "free" : "borrowed";

@@ -52,6 +52,16 @@ void UsersClass::addBookToUser(int bookId, int userId)
     users[userId].addBook(bookId);
 }
 
+bool UsersClass::hasBook(int bookId, int userId)
+{
+    return users[userId].hasBook(bookId);
+}
+
+void UsersClass::returnBook(int bookId, int userId)
+{
+    users[userId].returnBook(bookId);
+}
+
 UsersClass::~UsersClass()
 {
 }

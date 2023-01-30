@@ -27,6 +27,7 @@ public:
     bool isYourISBN(string _ISBN);
     bool isFree();
     void setUserId(int _userId);
+    void setFree();
     string toString();
     ~Book();
 };
