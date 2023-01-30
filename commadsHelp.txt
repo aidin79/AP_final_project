@@ -1,0 +1,6 @@
+signup userName password firstName lastName birthDate
+login userName password
+logout
+exit
+search name <name>
+search auther <name>

@@ -1,0 +1,3 @@
+add_library(ReaderModule SHARED ReaderModule.cpp)
+target_link_libraries(ReaderModule User)
+target_link_libraries(ReaderModule Book)
