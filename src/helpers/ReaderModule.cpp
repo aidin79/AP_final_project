@@ -29,7 +29,7 @@ vector<User> ReaderModule::readUsersFile(string fileAdr)
     string userName, password, firstName, lastName, birthDate;
     int numOfBooksBorrowed;
     bool isAdmin;
-    cout << "readUsersFile" << endl;
+    // cout << "readUsersFile" << endl;
     while (infile >> userName >> password >> firstName >> lastName >> birthDate >> isAdmin >> numOfBooksBorrowed)
     {
         vector<int> borrowedBooks;
@@ -38,7 +38,7 @@ vector<User> ReaderModule::readUsersFile(string fileAdr)
             infile >> bookId;
             borrowedBooks.push_back(bookId);
         }
-        cout << userName << ' ' << password << ' ' << firstName << ' ' << lastName << ' ' << birthDate << ' ' << isAdmin << ' ' << borrowedBooks.size() << endl;
+        // cout << userName << ' ' << password << ' ' << firstName << ' ' << lastName << ' ' << birthDate << ' ' << isAdmin << ' ' << borrowedBooks.size() << endl;
         users.push_back(User(userName, password, firstName, lastName, birthDate, borrowedBooks, isAdmin));
     }
     return users;
@@ -50,10 +50,10 @@ vector<Book> ReaderModule::readBooksFile(string fileAdr)
     vector<Book> books;
     string title, numberShelf , authors, publisher, ISBN, subjects;
     int edition, yearPublished, length, userId;
-    cout << "readUsersFile" << endl;
+    // cout << "readUsersFile" << endl;
     while (infile >> title >> numberShelf >> authors >> edition >> publisher >> yearPublished >> ISBN >> length >> subjects >> userId)
     {
-        cout << title << ' ' << numberShelf << ' ' << authors << ' ' << publisher << ' ' << yearPublished << ' ' << userId << endl;
+        // cout << title << ' ' << numberShelf << ' ' << authors << ' ' << publisher << ' ' << yearPublished << ' ' << userId << endl;
         books.push_back(Book(title, numberShelf, authors, edition, publisher, yearPublished, ISBN, length, subjects, userId));
     }
     return books;

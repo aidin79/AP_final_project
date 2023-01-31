@@ -63,5 +63,5 @@ BooksClass::~BooksClass()
     remove("src/Book/books.txt");
     for (Book book : books)
         ReaderModule::writeToFile(book.toString(true), "src/Book/books.txt");
-    cout << "BooksClass destructed!" << endl;
+    // cout << "BooksClass destructed!" << endl;
 }

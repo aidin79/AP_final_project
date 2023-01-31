@@ -67,5 +67,5 @@ UsersClass::~UsersClass()
     for (User user : users)
         ReaderModule::writeToFile(user.toString(), "src/User/usersFile.txt");
         
-    cout << "user class destructed" << endl;
+    // cout << "user class destructed" << endl;
 }

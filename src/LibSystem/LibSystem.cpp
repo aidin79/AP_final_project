@@ -159,7 +159,7 @@ void LibSystem::logout()
 LibSystem::LibSystem()
 {
     loggedInUserId = -1;
-    cout << "LibSystem is here!" << endl;
+    // cout << "LibSystem is here!" << endl;
 }
 
 void LibSystem::start()
@@ -182,5 +182,4 @@ void LibSystem::start()
 LibSystem::~LibSystem()
 {
     cout << "LibSystem died!" << endl;
-
 }
