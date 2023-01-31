@@ -18,13 +18,13 @@ User::User(string _userName, string _password, string _firstName, string _lastNa
 
 string User::toString() {
     char isAdminChar = isAdmin ? '1' : '0';
-    cout << "isAdminChar: " << isAdminChar << endl;
-    cout << "userName: " << userName << endl;
+    // cout << "isAdminChar: " << isAdminChar << endl;
+    // cout << "userName: " << userName << endl;
     string res = userName + ' ' + password + ' ' + firstName + ' ' + lastName + ' ' + birthDate + 
         ' ' + isAdminChar + ' ' + to_string(borrowedBooksId.size());
     for (int id : borrowedBooksId)
         res = res + ' ' + to_string(id);
-    cout << "res: " << res << endl;
+    // cout << "res: " << res << endl;
     return res;
 }
 

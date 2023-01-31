@@ -42,6 +42,12 @@ void BooksClass::freeBook(int bookId)
     books[bookId].setFree();
 }
 
+void BooksClass::printAll()
+{
+    for (Book book : books)
+        cout << book.toString() << endl;
+}
+
 int BooksClass::findByISBN(string ISBN)
 {
     int booksSize = books.size();
@@ -54,4 +60,8 @@ int BooksClass::findByISBN(string ISBN)
 
 BooksClass::~BooksClass()
 {
+    remove("src/Book/books.txt");
+    for (Book book : books)
+        ReaderModule::writeToFile(book.toString(true), "src/Book/books.txt");
+    cout << "BooksClass destructed!" << endl;
 }

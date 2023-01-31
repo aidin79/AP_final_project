@@ -22,6 +22,7 @@ private:
     void borrow(vector<string> command);
     void returnBook(vector<string> command);
     void listPrinter(vector<string> list);
+    void showAll();
     void logout();
 public:
     LibSystem();

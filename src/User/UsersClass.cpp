@@ -9,7 +9,6 @@ int UsersClass::findUserByUsername(string userName)
 {
     int usersSize = users.size();
     for (int i = 0; i < usersSize; i++) {
-        cout << "i: " << i << endl;
         if (users[i].isYourUser(userName))
             return i;
     }
@@ -64,4 +63,9 @@ void UsersClass::returnBook(int bookId, int userId)
 
 UsersClass::~UsersClass()
 {
+    remove("src/User/usersFile.txt");
+    for (User user : users)
+        ReaderModule::writeToFile(user.toString(), "src/User/usersFile.txt");
+        
+    cout << "user class destructed" << endl;
 }

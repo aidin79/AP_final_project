@@ -19,6 +19,8 @@ bool LibSystem::chooseState()
             borrow(command);
         else if (operation == "return")
             returnBook(command);
+        else if (operation == "showAll")
+            showAll();
         else if(operation == "exit")
             return false;
         else
@@ -109,7 +111,7 @@ void LibSystem::borrow(vector<string> command)
         throw invalid_argument("you cant borrow more books:(");
     booksClass.addUserToBook(loggedInUserId, bookId);
     usersClass.addBookToUser(bookId, loggedInUserId);
-    cout << "your book returned successfully" << endl;
+    cout << "you have borrowed successfully\n" << endl;
 }
 
 void LibSystem::returnBook(vector<string> command)
@@ -129,7 +131,8 @@ void LibSystem::returnBook(vector<string> command)
         throw invalid_argument("you dont have this book");
     booksClass.freeBook(bookId);
     usersClass.returnBook(bookId, loggedInUserId);
-    cout << "you have borrowed successfully" << endl;
+    cout << "your book returned successfully\n" << endl;
+
 }
 
 void LibSystem::listPrinter(vector<string> list)
@@ -138,6 +141,11 @@ void LibSystem::listPrinter(vector<string> list)
         cout << "empty:(" << endl;
     for (string line : list)
         cout << line << endl;
+}
+
+void LibSystem::showAll()
+{
+    booksClass.printAll();
 }
 
 void LibSystem::logout()

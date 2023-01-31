@@ -28,7 +28,7 @@ public:
     bool isFree();
     void setUserId(int _userId);
     void setFree();
-    string toString();
+    string toString(bool toWrite = false);
     ~Book();
 };
 

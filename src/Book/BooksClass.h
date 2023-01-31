@@ -17,6 +17,7 @@ public:
     bool isFree(int bookId);
     void addUserToBook(int userId, int bookId);
     void freeBook(int bookId);
+    void printAll();
     ~BooksClass();
 };
 

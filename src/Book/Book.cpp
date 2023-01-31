@@ -57,12 +57,16 @@ void Book::setFree()
     userId = -1;
 }
 
-string Book::toString()
+string Book::toString(bool toWrite)
 {
     string freeState = userId == -1 ? "free" : "borrowed";
 
-    return title + ' ' + numberShelf + ' ' + authors + ' ' + to_string(edition) + ' ' + publisher + ' ' 
-        + to_string(yearPublished) + ' ' + ISBN + ' ' + to_string(length) + ' ' + subjects + ' ' + freeState;
+    string res = title + ' ' + numberShelf + ' ' + authors + ' ' + to_string(edition) + ' ' + publisher + ' ' + 
+        to_string(yearPublished) + ' ' + ISBN + ' ' + to_string(length) + ' ' + subjects + ' ';
+
+    if (toWrite) res += to_string(userId);
+    else res += freeState;
+    return res;
 }
 
 Book::~Book()
